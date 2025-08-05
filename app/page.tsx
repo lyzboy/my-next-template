@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Button, { InverseButton } from "./components/Button";
+import Link from "next/link";
 
 //For styling with state changes, use clsx
 
@@ -8,22 +9,25 @@ export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <h1 className="md:text-red-400 text-black">I'm a heading 1</h1>
-        <h2>I'm a heading 2</h2>
-        <h3>I'm a heading 3</h3>
-        <h4>I'm a heading 4</h4>
-        <h5>I'm a heading 5</h5>
-        <p>I'm a p</p>
-        <Button text="My Button" />
-        <InverseButton text="Inverse Buttons" />
+        {/* REPLACE THIS CODE!!! */}
+        <p>
+          Please modify the main <code>/app/page.tsx</code> file to start. If
+          you would like to view what components that are included with the
+          template, please visit{" "}
+          <Link href={"/template"} className="text-blue-600">
+            <code>localhost:3000/template</code>
+          </Link>{" "}
+          or view the page in your project located at{" "}
+          <code>/app/template/page.tsx</code>. Be sure to remove both the{" "}
+          <code>/template</code> folder and all files contained within before
+          pushing your project to production.
+        </p>
+
+        <p>
+          Also remember to change you project name and version with the{" "}
+          <code>package.json</code> file. For additional information, see the{" "}
+          <code>README.md</code>.
+        </p>
       </main>
     </div>
   );
