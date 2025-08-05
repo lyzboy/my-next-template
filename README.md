@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) template project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Using this as a template project
+To use this as a template project, you can run the command:
+```bash
+npx create-next-app@latest my-app-name --example "https://github.com/lyzboy/my-next-template" --use-pnpm
+```
+This will clone this template project into you newly created app. 
+> NOTE: this command is set up to use `pnpm` instead of `npm` as denoted by the arugement `--use-pnpm`.
+
 ## Getting Started
 
 First, run the development server:
