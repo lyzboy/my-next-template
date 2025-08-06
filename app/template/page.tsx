@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Button, { InverseButton } from "@/app/components/Button";
 import Card, { SkewCard } from "../components/Card";
+import Section from "../components/Section";
 
 // Please delete this file and folder /template/page.tsx for production.
 
@@ -84,6 +85,17 @@ export default function Template() {
             <code>{`<SkewCard heading="my card" text="This is an example of a card" />`}</code>
           </p>
         </div>
+        <h3>Sections</h3>
+        <Section className="bg-gray-500 text-white">
+          <h3>This is a section</h3>
+          <p>Add more info here to have more in the section</p>
+        </Section>
+        <pre>
+          <code>{`        <Section className="bg-gray-500 text-white">
+          <h3>This is a section</h3>
+          <p>Add more info here to have more in the section</p>
+        </Section>`}</code>
+        </pre>
       </main>
     </div>
   );
