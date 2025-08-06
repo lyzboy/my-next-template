@@ -16,6 +16,20 @@ export default function Template() {
           styling within the template project. You can also see the header and
           footer (located in the folder <code>/app/components</code>).
         </p>
+        <p>
+          Components have been created with a <code>prop</code> for{" "}
+          <code>className</code> and are merged using <code>twmerge()</code>.
+          This means that for each of the template components provided, you can
+          provide <strong>Tailwind</strong> class to customize the component.
+          The <code>className</code> prop is provide last meaning any classes
+          you provide to the created component will override any class applied
+          in the components file. This should only be used for unique 1 off
+          solutions. If you would like to change the color of a component (text,
+          bg, etc) so that it is uniform, please change the colors within
+          global.css or modify the components file directly. Only use the
+          className prop if a specific component needs adjusted for any reason
+          (example: padding, margin, etc.).
+        </p>
         <h2>Colors</h2>
         <p>
           Change the colors of the template by modifying the hex values in the
@@ -32,7 +46,7 @@ export default function Template() {
         </pre>
 
         <h2>Typography</h2>
-        <div className="grid grid-cols-2 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
           <h1>I'm a heading 1</h1>
           <p className=" my-auto">
             <code>{"<h1>I'm a heading 1</h1>"}</code>
@@ -64,7 +78,7 @@ export default function Template() {
         <p>
           <code>{`import Button, { InverseButton } from "@/app/components/Button";`}</code>
         </p>
-        <div className="grid grid-cols-2 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
           <Button text="My Button" />
           <p className=" my-auto">
             <code>{`<Button text="My Button" />`}</code>
@@ -73,9 +87,11 @@ export default function Template() {
           <p className=" my-auto">
             <code>{`<InverseButton text="Inverse Button" />`}</code>
           </p>
+          <Button text="Go Ahead and click on me" />
+          <p>A long text button</p>
         </div>
         <h3>Cards</h3>
-        <div className="grid grid-cols-2 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card heading="my card" text="This is an example of a card" />
           <p className=" my-auto">
             <code>{`<Card heading="my card" text="This is an example of a card" />`}</code>
@@ -84,18 +100,29 @@ export default function Template() {
           <p className=" my-auto">
             <code>{`<SkewCard heading="my card" text="This is an example of a card" />`}</code>
           </p>
+          <Card heading="my card" text="This is an example of a card">
+            <InverseButton text="click me" className="mt-5" />
+          </Card>
+          <pre>
+            <code>{`
+            <Card heading="my card" text="This is an example of a card">
+              <InverseButton text="click me" className="mt-5" />  
+              </Card>`}</code>
+          </pre>
         </div>
         <h3>Sections</h3>
-        <Section className="bg-gray-500 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Section className="bg-gray-500 text-white items-center">
+            <h3>This is a section</h3>
+            <p>Add more info here to have more in the section</p>
+          </Section>
+          <pre>
+            <code>{`        <Section className="bg-gray-500 text-white">
           <h3>This is a section</h3>
           <p>Add more info here to have more in the section</p>
-        </Section>
-        <pre>
-          <code>{`        <Section className="bg-gray-500 text-white">
-          <h3>This is a section</h3>
-          <p>Add more info here to have more in the section</p>
-        </Section>`}</code>
-        </pre>
+          </Section>`}</code>
+          </pre>
+        </div>
       </main>
     </div>
   );

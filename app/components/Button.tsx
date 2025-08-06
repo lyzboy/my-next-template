@@ -1,40 +1,46 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface ButtonProps {
   text: string;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
-  return (
-    <div
-      className="
-    bg-primary 
-    text-white 
+const baseClasses = `
     p-2 
     rounded-lg 
-    hover:bg-primary-dark
-    cursor-pointer"
-    >
+    cursor-pointer
+    max-w-40
+    uppercase`;
+
+const Button: React.FC<ButtonProps> = ({ text, className = "" }) => {
+  const combinedClasses = twMerge(
+    baseClasses,
+    `bg-primary 
+    text-white 
+    hover:bg-primary-dark`,
+    className
+  );
+  return (
+    <div className={combinedClasses}>
       <p className="font-bold">{text}</p>
     </div>
   );
 };
 
-export const InverseButton: typeof Button = ({ text }) => {
-  return (
-    <div
-      className="
-    bg-white
+export const InverseButton: typeof Button = ({ text, className = "" }) => {
+  const combinedClasses = twMerge(
+    baseClasses,
+    `bg-white
     text-primary 
     border-3
-    border-
-    p-2 
-    rounded-lg 
     hover:bg-primary-dark
     hover:text-white
-    hover:border-primary-dark
-    cursor-pointer"
-    >
+    hover:border-primary-dark`,
+    className
+  );
+  return (
+    <div className={combinedClasses}>
       <p className="font-bold">{text}</p>
     </div>
   );
